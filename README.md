@@ -1,29 +1,194 @@
-# ⚡ LinkDash 
+# LinkDash
 
-**LinkDash** is a smart, persistent Chrome Extension engineered for power users who need to frequently format URLs and text on the fly. 
+A lightweight Chrome Extension that helps you quickly convert URLs or text by replacing `/` (slashes) and spaces with `-` (hyphens). It also extracts the current webpage's URL path and lets you copy both the original and converted versions with a single click.
 
-Instead of opening a disruptive new tab or relying on a fragile popup that disappears when you click your screen, LinkDash injects a sleek, persistent floating tool directly into your workspace. It stays exactly where you need it while you interact seamlessly with your full-size web pages!
+---
 
-## ✨ Features
+## Features
 
-- **Floating UI Overlay**: The extension floats above your active webpage. Click around, scroll, and work without your extension mysteriously closing.
-- **Instant URL Extraction**: Automatically retrieves your browser's current active URL link (without the `https://www.`) the second you open it.
-- **Smart Formatting**: Converts any slashes (`/`) and spaces in URLs or text into clean hyphens (`-`) for perfect, dash-separated slugs every time.
-- **1-Click Copying**: Instantly copies original or converted URLs to your clipboard with clean UI feedback.
-- **Manual Input Converter**: Need an external link formatted? Paste it directly into the tool, hit convert, and it's on your clipboard!
+### URL/Text Converter
+- Paste any URL or text.
+- Converts:
+  - `/` → `-`
+  - Spaces → `-`
+- Automatically copies the converted result to your clipboard.
+- One-click clear button.
 
-## 🚀 Installation 
+### Page URL Extractor
+Extracts the current webpage's URL in two formats:
 
-1. Download or clone this repository to your local machine.
-2. Open Google Chrome and type `chrome://extensions/` in the address bar.
-3. Toggle **Developer mode** ON (top right corner).
-4. Click the **Load unpacked** button (top left).
-5. Select the folder containing these extension files.
-6. **Pin it:** Click the puzzle piece icon in Chrome, find **LinkDash** (URL Slash to Hyphen Replacer), and click the pin icon to keep it on your toolbar.
+**Original**
+```
+example.com/folder/page
+```
 
-## 🛠️ Usage
+**Converted**
+```
+example.com-folder-page
+```
 
-1. **Activate**: Click the pinned extension icon while on any web page. 
-2. **Auto-Extract**: LinkDash will immediately drop onto the screen and present your current URL already extracted and hyphenated.
-3. **Copy it**: Click "Copy Converted" to grab your cleanly formatted string.
-4. **Close**: When you are finally done, click the `X` button on the top right, or click the extension icon again to toggle it off.
+Both can be copied individually with one click.
+
+### Floating Overlay
+- Opens as a clean floating popup on the current webpage.
+- Toggle by clicking the extension icon.
+- Close using the × button.
+
+---
+
+## Example
+
+### Input
+
+```
+https://example.com/jobs/software-engineer
+```
+
+### Output
+
+```
+https:--example.com-jobs-software-engineer
+```
+
+---
+
+### Current Page
+
+If you're visiting
+
+```
+https://developer.chrome.com/docs/extensions
+```
+
+The extension extracts:
+
+Original
+
+```
+developer.chrome.com/docs/extensions
+```
+
+Converted
+
+```
+developer.chrome.com-docs-extensions
+```
+
+---
+
+## Installation
+
+### Developer Mode
+
+1. Download or clone this repository.
+
+```
+git clone https://github.com/yourusername/linkdash.git
+```
+
+2. Open Chrome.
+
+3. Navigate to
+
+```
+chrome://extensions
+```
+
+4. Enable **Developer Mode**.
+
+5. Click **Load unpacked**.
+
+6. Select the project folder.
+
+7. The extension is ready to use.
+
+---
+
+## Project Structure
+
+```
+LinkDash/
+│
+├── manifest.json        # Extension configuration
+├── background.js        # Injects the content script
+├── content.js           # Creates the floating UI and handles logic
+└── README.md
+```
+
+---
+
+## Permissions
+
+The extension requires:
+
+| Permission | Purpose |
+|------------|---------|
+| activeTab | Access the currently active tab |
+| scripting | Inject the content script into webpages |
+
+---
+
+## How It Works
+
+1. Click the extension icon.
+2. The content script is injected into the active webpage.
+3. A floating overlay appears.
+4. You can:
+   - Convert pasted text.
+   - Copy converted text.
+   - Extract the current page URL.
+   - Copy either the original or converted version.
+
+---
+
+## Current Version
+
+**Version:** 1.4
+
+---
+
+## Browser Support
+
+- Google Chrome
+- Microsoft Edge (Chromium)
+- Brave
+- Opera
+- Most Chromium-based browsers
+
+---
+
+## Limitations
+
+- Does not work on:
+  - `chrome://` pages
+  - Chrome Web Store pages
+  - Other protected browser pages
+
+- Requires permission to inject scripts into webpages.
+
+---
+
+## Future Improvements
+
+- Dark mode
+- Keyboard shortcuts
+- Automatic conversion while typing
+- Copy notifications
+- Custom replacement characters
+- Export history
+- Regex-based replacements
+- Firefox support
+
+---
+
+## License
+
+MIT License
+
+---
+
+## Author
+
+Developed by **Swaroop Wayadande**.
+
+If you find this project useful, consider giving it a ⭐ on GitHub.
