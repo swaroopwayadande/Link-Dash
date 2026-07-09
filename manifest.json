@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "LinkDash",
+  "version": "1.4",
+  "description": "A small utility to replace slashes (/) with hyphens (-) in URLs or text. Hover over websites continuously.",
+  "permissions": ["activeTab", "scripting"],
+  "action": {
+    "default_title": "Toggle URL Replacer"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}
